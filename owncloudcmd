@@ -1,51 +1,85 @@
 #!/usr/bin/env python
 
 import mechanize
+from cmd import Cmd
 
-class OwnCloud:
-	isLoggedIn = false
-	
+class OwnCloudClient:
+	isLoggedIn = False
+	isConnected = False
+	server = ''
+	br = ''
 	def __init__(self):
-		"""TODO"""
+		self.br = mechanize.Browser()
+
+	def connect(self, server_addr):
+		self.server = server_addr
+		br.open('https://' + server_addr)
+		#self.isConnected = br.open('https://' + server_addr)
+		#return self.isConnected
+
+	def disconnect(self):
+		print "TODO"
 
 	def login(self, username, password):
-		"""TODO"""
+		if (not isLoggedIn):
+			self.br.select_form(name='login')
+			self.br.form['user'] = 'registration'
+			self.br.form['password'] = '123'
+			br.submit()
+
+		else:
+			print "TODO: login (username=%s, password=%s)" % (username, password)
 
 	def logout(self):
-		"""TODO"""
+		print "TODO: logout"
 
 	def createFolder(self, foldername):
-		"""TODO"""
+		print "TODO create folder %s" % foldername
 
 	def removeFolder(self, foldername):
-		"""TODO"""
+		print "TODO: remove folder %s" % foldername
 
 	def uploadFile(self, localFilePath):
-		"""TODO"""
+		print "TODO: uploadfile %path" % localFilePath
 
 	def removeFile(self, filename):
-		"""TODO"""
+		print "TODO: removeFile %s" % filename
 
 
-class OwnCloudCmd:
+class OwnCloudCmd(Cmd):
+	"""Simple command processor example."""
 
-	command=''
-
+	oc = OwnCloudClient()
 	def __init__(self):
-		"""TODO"""
+		self.prompt = 'OwnCloud Client >>> '
 
-	def __
+	def do_create(self, line):
+		print "LINE: %s len %d" % (line, len(line))
+		if len(line) == 0:
+			print self.help_create()
+		else:
+			args=line.split(' ')
+			if len(args[0]) == 0:
+				print self.help_create()
+			elif args[0] == 'folder':
+				print "CREATE FOLDER"
+			elif args[0] == 'text_file':
+				print "CREATE TEXT FILE"
+			elif args[0] == 'from_link':
+				print "CREATE FROM LINK"
+			else:
+				print self.help_create()
+	
 
-	def interativeMode(self):
+	def do_exit(self, line):
+		print "Bye! "
+		#sleep(1)
+		raise SystemExit
+
+	def help_create(self):
+		return 'HELP CREATE'
 
 
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+	prompt = OwnCloudCmd()
+	prompt.cmdloop('')
