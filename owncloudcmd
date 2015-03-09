@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+
+import mechanize
+
+class OwnCloud:
+	isLoggedIn = false
+	
+	def __init__(self):
+		"""TODO"""
+
+	def login(self, username, password):
+		"""TODO"""
+
+	def logout(self):
+		"""TODO"""
+
+	def createFolder(self, foldername):
+		"""TODO"""
+
+	def removeFolder(self, foldername):
+		"""TODO"""
+
+	def uploadFile(self, localFilePath):
+		"""TODO"""
+
+	def removeFile(self, filename):
+		"""TODO"""
+
+
+class OwnCloudCmd:
+
+	command=''
+
+	def __init__(self):
+		"""TODO"""
+
+	def __
+
+	def interativeMode(self):
+
+
+
+
+
+
+
+
+
+
+
+
