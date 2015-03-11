@@ -1,19 +1,21 @@
 #!/usr/bin/env python
-
-import mechanize
+from getpass import getpass
+from mechanize import Browser
 from cmd import Cmd
 
 class OwnCloudClient:
+	"""OwncloudClient"""
+
 	isLoggedIn = False
 	isConnected = False
-	server = ''
-	br = ''
+	
 	def __init__(self):
-		self.br = mechanize.Browser()
+		self.br = Browser()
 
 	def connect(self, server_addr):
+
 		self.server = server_addr
-		br.open('https://' + server_addr)
+		self.br.open('https://' + server_addr)
 		#self.isConnected = br.open('https://' + server_addr)
 		#return self.isConnected
 
@@ -21,12 +23,11 @@ class OwnCloudClient:
 		print "TODO"
 
 	def login(self, username, password):
-		if (not isLoggedIn):
+		if (not self.isLoggedIn):
 			self.br.select_form(name='login')
-			self.br.form['user'] = 'registration'
-			self.br.form['password'] = '123'
-			br.submit()
-
+			self.br.form['user'] = username
+			self.br.form['password'] = password
+			self.br.submit()
 		else:
 			print "TODO: login (username=%s, password=%s)" % (username, password)
 
@@ -34,7 +35,35 @@ class OwnCloudClient:
 		print "TODO: logout"
 
 	def createFolder(self, foldername):
-		print "TODO create folder %s" % foldername
+		
+		for i in br.response().read().split('\n'):
+			if 'data-requesttoken' in i:
+				token = i.split('=')[2][1:-2]
+
+		br.select_form(nr=0)
+		br.form.controls.pop()
+		br.form.new_control('text', 'Accept', {})
+		br.form['Accept'] = '*/*'
+		br.form.new_control('text', 'requesttoken', {})
+		br.form['requesttoken'] = token
+		br.form.new_control('text', 'Refer', {})
+		br.form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
+		br.form.new_control('text', 'Origin', {})
+		br.form['Origin'] = 'https://cloud.iip.ufrn.br'
+		br.form.new_control('text', 'X-Requested-With', {})
+		br.form['X-Requested-With'] = 'XMLHttpRequest'
+		br.form.new_control('text', 'Content-Type', {})
+		br.form['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+		br.form.new_control('text', 'dir', {})
+		br.form['dir'] = u'/'
+		br.form.new_control('text', 'foldername', {})
+		br.form['foldername'] = foldername
+		br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/newfolder.php'
+
+		print br.form
+
+		br.submit()
+
 
 	def removeFolder(self, foldername):
 		print "TODO: remove folder %s" % foldername
@@ -50,11 +79,29 @@ class OwnCloudCmd(Cmd):
 	"""Simple command processor example."""
 
 	oc = OwnCloudClient()
-	def __init__(self):
-		self.prompt = 'OwnCloud Client >>> '
+	
+	def do_connect(self, line):
+		args = line.split(' ')
+		if len(args) == 1:
+			server_addr = args[0]
+			self.oc.connect(server_addr)
+			self.prompt = '%s ~> ' % server_addr
+		else:
+			print self.help_create()
+
+	def do_login(self, line):
+		args = line.split(' ')
+		if len(args) == 2:
+			u = args[0]
+			p = args[1]
+			self.oc.login(u, p)
+			## TODO Test if it worked
+			self.prompt = u + '@' + self.prompt[:-3] + '#> '
+		else:
+			print self.help_login()
+
 
 	def do_create(self, line):
-		print "LINE: %s len %d" % (line, len(line))
 		if len(line) == 0:
 			print self.help_create()
 		else:
@@ -72,14 +119,46 @@ class OwnCloudCmd(Cmd):
 	
 
 	def do_exit(self, line):
-		print "Bye! "
+		print "Saindo. "
 		#sleep(1)
 		raise SystemExit
 
 	def help_create(self):
 		return 'HELP CREATE'
 
+	def help_login(self):
+		return 'HELP LOGIN'
+
+
+class CmdUI():
+	"""CmdUI"""
+
+	prompt = OwnCloudCmd()
+	initType = 1 #from constructor
+	def __init__(self):
+		self.prompt.prompt = 'OCClient > '
+
+	def __init__(self, server, user, passwd):
+		self.prompt.do_connect(server)
+ 		self.prompt.do_login(user + ' ' + passwd)
+		self.prompt.cmdloop()
+
 
 if __name__ == '__main__':
-	prompt = OwnCloudCmd()
-	prompt.cmdloop('')
+	#prompt = OwnCloudCmd()
+	#prompt.connect()
+	#prompt.prompt = 'OC Client >>> '
+	#prompt.cmdloop()
+	server = str(raw_input('Server (https): '))
+
+	## TODO Improve check creating regexp
+	## TODO check if it's a valid DNS NAME or IP ADDRESS
+	if (server[:7] == 'http://'):
+		server = server[:7]
+	elif (server[:8] == 'https://'):
+		server = server[:8]
+
+	user = str(raw_input('Username: '))
+	passwd = getpass('Password: *')
+
+	CmdUI(server, user, passwd)
