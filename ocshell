@@ -44,18 +44,7 @@ class OwnCloudClient:
 
 		br.select_form(nr=0)
 		br.form.controls.pop()
-		br.form.new_control('text', 'Accept', {})
-		br.form['Accept'] = '*/*'
-		br.form.new_control('text', 'requesttoken', {})
-		br.form['requesttoken'] = token
-		br.form.new_control('text', 'Refer', {})
-		br.form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
-		br.form.new_control('text', 'Origin', {})
-		br.form['Origin'] = 'https://cloud.iip.ufrn.br'
-		br.form.new_control('text', 'X-Requested-With', {})
-		br.form['X-Requested-With'] = 'XMLHttpRequest'
-		br.form.new_control('text', 'Content-Type', {})
-		br.form['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+		prepareNewForm(br)
 		br.form.new_control('text', 'dir', {})
 		br.form['dir'] = u'/'
 		br.form.new_control('text', 'foldername', {})
@@ -66,6 +55,19 @@ class OwnCloudClient:
 
 		br.submit()
 
+	def prepareNewForm(self, browser)::
+		browser.form.new_control('text', 'Accept', {})
+		form['Accept'] = '*/*'
+		form.new_control('text', 'requesttoken', {})
+		form['requesttoken'] = token
+		form.new_control('text', 'Refer', {})
+		form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
+		form.new_control('text', 'Origin', {})
+		form['Origin'] = 'https://cloud.iip.ufrn.br'
+		form.new_control('text', 'X-Requested-With', {})
+		form['X-Requested-With'] = 'XMLHttpRequest'
+		form.new_control('text', 'Content-Type', {})
+		form['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
 
 	def removeFolder(self, foldername):
 		print "TODO: remove folder %s" % foldername
