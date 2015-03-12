@@ -35,7 +35,9 @@ br.form.new_control('text', 'Refer', {})
 br.form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
 br.form.new_control('text', 'X-Requested-With', {})
 br.form['X-Requested-With'] = 'XMLHttpRequest'
-#br.form.new_control('text', 'dir', {})
+#br.ff '\"data\":' in i:
+                print i
+		orm.new_control('text', 'dir', {})
 #br.form['dir'] = u'/'
 #br.form.new_control('text', 'foldername', {})
 #br.form['foldername'] = 'PACHECO'
@@ -51,7 +53,8 @@ for i in br.response().read().split('\n'):
 		print i
 
 """
-for i in br.response().read().split('\n'):
+for i in br.resp;q
+onse().read().split('\n'):
 	if 'data-requesttoken' in i:
 		token = i.split('=')[2][1:-2]
 

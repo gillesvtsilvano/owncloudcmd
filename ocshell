@@ -10,9 +10,13 @@ class OwnCloudClient:
 
 	isLoggedIn = False
 	isConnected = False
-	
+	actualDir='/'
+
 	def __init__(self):
 		self.br = Browser()
+
+	def getResponse(self):
+		return br.response().read().split('\n')
 
 	def connect(self, server_addr):
 
@@ -38,24 +42,35 @@ class OwnCloudClient:
 
 	def createFolder(self, foldername):
 		
-		for i in br.response().read().split('\n'):
-			if 'data-requesttoken' in i:
-				token = i.split('=')[2][1:-2]
-
-		br.select_form(nr=0)
-		br.form.controls.pop()
-		prepareNewForm(br)
-		br.form.new_control('text', 'dir', {})
+		self.br.select_form(nr=0)
+		self.br.form.controls.pop()
+		self.prepareNewForm(br)
+		self.br.form.new_control('text', 'dir', {})
 		br.form['dir'] = u'/'
 		br.form.new_control('text', 'foldername', {})
 		br.form['foldername'] = foldername
 		br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/newfolder.php'
 
-		print br.form
-
 		br.submit()
 
+	def list(self, directory):
+		
+		br.select_form(nr=0)
+		br.form.controls.pop()
+		self.prepareNewform(br)
+		br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/list.php?dir=%2F&soft=name&sortdirection=asc'
+		br.form.method = 'GET'
+		br.form.new_control('text', 'dir', {})
+		br.form['dir'] = u'/'
+
+		br.submit()
+	
 	def prepareNewForm(self, browser)::
+	
+		for i in br.response().read().split('\n'):
+			if 'data-requesttoken' in i:
+				token = i.split('=')[2][1:-2]
+
 		browser.form.new_control('text', 'Accept', {})
 		form['Accept'] = '*/*'
 		form.new_control('text', 'requesttoken', {})
@@ -73,17 +88,29 @@ class OwnCloudClient:
 		print "TODO: remove folder %s" % foldername
 
 	def uploadFile(self, localFilePath):
-		print "TODO: uploadfile %path" % localFilePath
+		print "TODO: uploadfile %s" % localFilePath
+
+	def downloadFile(self, filename):
+		print 'TODO: downloadfile %s' % filename
 
 	def removeFile(self, filename):
 		print "TODO: removeFile %s" % filename
 
 
 class OwnCloudCmd(Cmd):
-	"""Simple command processor example."""
+	"""Simple example of a command processor."""
 
 	oc = OwnCloudClient()
-	
+
+	def do_list(self, line):
+		args = line.split(' ')
+		## TODO Enable listing other directories
+		if len(args) != 1:
+			args[0]
+			self.oc.list(args[0])
+		else:
+			print self.help_list()
+
 	def do_connect(self, line):
 		args = line.split(' ')
 		if len(args) == 1:
@@ -99,7 +126,7 @@ class OwnCloudCmd(Cmd):
 			u = args[0]
 			p = args[1]
 			self.oc.login(u, p)
-			## TODO Test if it worked
+			## TODO Test it
 			self.prompt = u + '@' + self.prompt[:-3] + '#> '
 		else:
 			print self.help_login()
@@ -132,27 +159,24 @@ class OwnCloudCmd(Cmd):
 
 	def help_login(self):
 		return 'HELP LOGIN'
+	
+	def help_list(self):
+		return 'HELP LIST'
 
 
 class CmdUI():
 	"""CmdUI"""
 
 	prompt = OwnCloudCmd()
-	initType = 1 #from constructor
-	def __init__(self):
-		self.prompt.prompt = 'OCClient > '
 
 	def __init__(self, server, user, passwd):
+		self.prompt.prompt = 'OCClient > '
 		self.prompt.do_connect(server)
  		self.prompt.do_login(user + ' ' + passwd)
 		self.prompt.cmdloop()
 
 
 if __name__ == '__main__':
-	#prompt = OwnCloudCmd()
-	#prompt.connect()
-	#prompt.prompt = 'OC Client >>> '
-	#prompt.cmdloop()
 	server = str(raw_input('Server (https): '))
 
 	## TODO Improve check through regexp
