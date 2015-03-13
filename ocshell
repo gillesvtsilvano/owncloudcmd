@@ -4,6 +4,7 @@
 from getpass import getpass
 from mechanize import Browser
 from cmd import Cmd
+import json
 
 class OwnCloudClient:
 	"""OwncloudClient"""
@@ -44,45 +45,58 @@ class OwnCloudClient:
 		
 		self.br.select_form(nr=0)
 		self.br.form.controls.pop()
-		self.prepareNewForm(br)
+		self.prepareNewForm(self.br)
 		self.br.form.new_control('text', 'dir', {})
-		br.form['dir'] = u'/'
-		br.form.new_control('text', 'foldername', {})
-		br.form['foldername'] = foldername
-		br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/newfolder.php'
+		self.br.form['dir'] = u'/'
+		self.br.form.new_control('text', 'foldername', {})
+		self.br.form['foldername'] = foldername
+		self.br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/newfolder.php'
 
-		br.submit()
+		self.br.submit()
+		self.br.back()
 
 	def list(self, directory):
 		
-		br.select_form(nr=0)
-		br.form.controls.pop()
-		self.prepareNewform(br)
-		br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/list.php?dir=%2F&soft=name&sortdirection=asc'
-		br.form.method = 'GET'
-		br.form.new_control('text', 'dir', {})
-		br.form['dir'] = u'/'
+		self.br.select_form(nr=0)
+		#self.br.form.controls.pop()
+		self.prepareNewForm(self.br)
+		self.br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/list.php?dir=%2F&soft=name&sortdirection=asc'
+		self.br.form.method = 'GET'
+		self.br.form.new_control('text', 'dir', {})
+		self.br.form['dir'] = u'/'
 
-		br.submit()
+		self.br.submit()
+
+		#print self.br.response().read().split('\n')
+		for i in self.br.response().read().split('\n'):
+			if '\"data\":' in i:
+				json_acceptable_string = i.replace("'", "\"")
+				d = json.loads(json_acceptable_string)
+				#print d
+				for j in d[u'data'][u'files']:
+					print j['type'] + '\t' + j['name']
+				#for j in i[0]['data']['files']:
+				#	print j['type'] + '\t' + j['name']
+		self.br.back()
 	
-	def prepareNewForm(self, browser)::
+	def prepareNewForm(self, browser):
 	
-		for i in br.response().read().split('\n'):
+		for i in browser.response().read().split('\n'):
 			if 'data-requesttoken' in i:
 				token = i.split('=')[2][1:-2]
 
 		browser.form.new_control('text', 'Accept', {})
-		form['Accept'] = '*/*'
-		form.new_control('text', 'requesttoken', {})
-		form['requesttoken'] = token
-		form.new_control('text', 'Refer', {})
-		form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
-		form.new_control('text', 'Origin', {})
-		form['Origin'] = 'https://cloud.iip.ufrn.br'
-		form.new_control('text', 'X-Requested-With', {})
-		form['X-Requested-With'] = 'XMLHttpRequest'
-		form.new_control('text', 'Content-Type', {})
-		form['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+		browser.form['Accept'] = '*/*'
+		browser.form.new_control('text', 'requesttoken', {})
+		browser.form['requesttoken'] = token
+		browser.form.new_control('text', 'Refer', {})
+		browser.form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
+		browser.form.new_control('text', 'Origin', {})
+		browser.form['Origin'] = 'https://cloud.iip.ufrn.br'
+		browser.form.new_control('text', 'X-Requested-With', {})
+		browser.form['X-Requested-With'] = 'XMLHttpRequest'
+		browser.form.new_control('text', 'Content-Type', {})
+		browser.form['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
 
 	def removeFolder(self, foldername):
 		print "TODO: remove folder %s" % foldername
@@ -104,12 +118,15 @@ class OwnCloudCmd(Cmd):
 
 	def do_list(self, line):
 		args = line.split(' ')
-		## TODO Enable listing other directories
-		if len(args) != 1:
-			args[0]
-			self.oc.list(args[0])
-		else:
+		#command = args[0]
+		if len(args) > 2 and len(args) < 1:
 			print self.help_list()
+		if len(args) == 2:
+			dir = args[1]
+		elif len(args) == 1:
+			dir = u'/'
+			## TODO Enable listing other directories
+		self.oc.list(dir)
 
 	def do_connect(self, line):
 		args = line.split(' ')
@@ -133,6 +150,8 @@ class OwnCloudCmd(Cmd):
 
 
 	def do_create(self, line):
+
+		# TODO Check args length 
 		if len(line) == 0:
 			print self.help_create()
 		else:
@@ -140,7 +159,7 @@ class OwnCloudCmd(Cmd):
 			if len(args[0]) == 0:
 				print self.help_create()
 			elif args[0] == 'folder':
-				print "CREATE FOLDER"
+				self.oc.createFolder(args[1])
 			elif args[0] == 'text_file':
 				print "CREATE TEXT FILE"
 			elif args[0] == 'from_link':
@@ -187,6 +206,6 @@ if __name__ == '__main__':
 		server = server[:8]
 
 	user = str(raw_input('Username: '))
-	passwd = getpass('Password: *')
-
+	passwd = getpass('Password: ')
+	#CmdUI('cloud.iip.ufrn.br', 'registration', '123')
 	CmdUI(server, user, passwd)
