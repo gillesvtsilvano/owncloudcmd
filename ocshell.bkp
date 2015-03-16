@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from getpass import getpass
-import mechanize
+from mechanize import Browser
 from cmd import Cmd
 import mimetypes, json
 
@@ -15,10 +15,7 @@ class OwnCloudClient:
 
 
 	def __init__(self):
-		self.br = mechanize.Browser()
-		self.br.set_handle_robots(False)   # ignore robots
-		self.br.set_handle_refresh(False)  # can sometimes hang without this
-		self.br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+		self.br = Browser()
 
 	def getResponse(self):
 		return br.response().read().split('\n')
@@ -67,12 +64,13 @@ class OwnCloudClient:
 	def list(self, directory):
 		
 		self.br.select_form(nr=0)
-		self.br.form.controls.pop()
+		#self.br.form.controls.pop()
 		self.prepareNewForm(self.br)
 		self.br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/list.php?dir=%2F&soft=name&sortdirection=asc'
 		self.br.form.method = 'GET'
 		self.br.form.new_control('text', 'dir', {})
 		self.br.form['dir'] = u'/'
+
 		self.br.submit()
 
 		#print self.br.response().read().split('\n')
@@ -85,7 +83,6 @@ class OwnCloudClient:
 					print j['type'] + '\t' + j['name']
 				#for j in i[0]['data']['files']:
 				#	print j['type'] + '\t' + j['name']
-
 		self.br.back()
 
 
@@ -93,34 +90,32 @@ class OwnCloudClient:
 	def uploadFile(self, localFilePath):
 		##br.form.add_file(open(filename), 'text/plain', filename, name='file')
 
+		print ">> uploadFile(localFilePath=%s)" % localFilePath
 		self.br.select_form(nr=0)
 		for i in self.br.response().read().split('\n'):
 			if 'data-requesttoken' in i:
 				token = i.split('=')[2][1:-2]
 
-		self.br.controls.pop()
 		self.br.form.action = 'https://cloud.iip.ufrn.br/index.php/apps/files/ajax/upload.php'
 		self.br.form.new_control('text', 'Accept', {})
 		self.br.form['Accept'] = '*/*'
 		self.br.form.new_control('text', 'requesttoken', {})
 		self.br.form['requesttoken'] = token
 		self.br.form.new_control('text', 'Refer', {})
-		self.br.form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/apps/files/'
+		self.br.form['Refer'] = 'https://cloud.iip.ufrn.br/index.php/app/files/'
 		self.br.form.new_control('text', 'Origin', {})
 		self.br.form['Origin'] = 'https://cloud.iip.ufrn.br'
 		self.br.form.new_control('text', 'X-Requested-With', {})
 		self.br.form['X-Requested-With'] = 'XMLHttpRequest'
-		
+		self.br.form.new_control('text', 'Content-Type', {})
 		fields={('requesttoken', token), ('dir', '/'), ('file_directory', '')}
 		fd = open(localFilePath)
 		files={('files[]', fd.name , fd.read())}
-
+		fd.close()
 		content_type, body = self.encode_multipart_formdata(fields, files)
-		self.br.form.new_control('text', 'Content-Type', {})
-		self.br.form['Content-Type'] = 'multipart/form-data; boundary=----------bound@ry_$'
-		self.br.request.data = body
-		self.br.submit()
-		#fd.close()
+		self.br.form['Content-Type'] = content_type
+		#self.br.request('https://cloud.iip.ufrn.br/index.php/app/files/ajax/upload.php', body)
+		self.br.
 		#fd = open('log', 'w')
 		#fd.write(self.br.response().read())
 		self.br.back()
@@ -243,6 +238,7 @@ class OwnCloudCmd(Cmd):
 				print self.help_upload()
 			else:
 				filepath = args[0]
+				print ">> Calling self.oc.uploadFile(filepath=%s)" % filepath
 				self.oc.uploadFile(filepath)
 
 
@@ -278,16 +274,16 @@ class CmdUI():
 
 
 if __name__ == '__main__':
-	CmdUI('cloud.iip.ufrn.br', 'registration', '123')
-	#server = str(raw_input('Server (https): '))
+	server = str(raw_input('Server (https): '))
 
 	## TODO Improve check through regexp
 	## TODO check if it's a valid DNS NAME or IP ADDRESS
-	#if (server[:7] == 'http://'):
-	#	server = server[:7]
-	#elif (server[:8] == 'https://'):
-	#	server = server[:8]
+	if (server[:7] == 'http://'):
+		server = server[:7]
+	elif (server[:8] == 'https://'):
+		server = server[:8]
 
-	#user = str(raw_input('Username: '))
-	#passwd = getpass('Password: ')
-	#CmdUI(server, user, passwd)
+	user = str(raw_input('Username: '))
+	passwd = getpass('Password: ')
+	#CmdUI('cloud.iip.ufrn.br', 'registration', '123')
+	CmdUI(server, user, passwd)

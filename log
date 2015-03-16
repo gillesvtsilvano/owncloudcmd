@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ng-csp ie ie6 lte9 lte8 lte7" data-placeholder-focus="false"><![endif]-->
+<!--[if IE 7]><html class="ng-csp ie ie7 lte9 lte8 lte7" data-placeholder-focus="false"><![endif]-->
+<!--[if IE 8]><html class="ng-csp ie ie8 lte9 lte8" data-placeholder-focus="false"><![endif]-->
+<!--[if IE 9]><html class="ng-csp ie ie9 lte9" data-placeholder-focus="false"><![endif]-->
+<!--[if gt IE 9]><html class="ng-csp ie" data-placeholder-focus="false"><![endif]-->
+<!--[if !IE]><!--><html class="ng-csp" data-placeholder-focus="false"><!--<![endif]-->
+
+	<head data-user="registration" data-requesttoken="254b601234131b73146f">
+		<title>
+			Files - IIPCloud		</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-itunes-app" content="app-id=543672169">
+		<link rel="shortcut icon" href="/core/img/favicon.png" />
+		<link rel="apple-touch-icon-precomposed" href="/core/img/favicon-touch.png" />
+					<link rel="stylesheet" href="/core/css/styles.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/header.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/mobile.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/icons.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/fonts.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/apps.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/fixes.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/multiselect.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/jquery-ui-1.10.0.custom.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/jquery-tipsy.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/jquery.ocdialog.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files_mv/css/mv.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/3rdparty/css/chosen/chosen.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/core/css/share.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files_versions/css/versions.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/gallery/css/slideshow.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/search_lucene/css/lucene.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files_videoviewer/css/style.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files_videoviewer/css/mediaelementplayer.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/firstrunwizard/css/colorbox.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/firstrunwizard/css/firstrunwizard.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/ocusagecharts/css/style.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/superlog/css/superlog.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files/css/files.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files/css/upload.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files/css/mobile.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+					<link rel="stylesheet" href="/apps/files_trashbin/css/trash.css?v=56b8b562542d34fbbb05968309a1e847" type="text/css" media="screen" />
+							<script type="text/javascript" src="/index.php/core/js/oc.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery-1.10.0.min.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery-migrate-1.2.1.min.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery-ui-1.10.0.custom.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery-showpassword.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/placeholders.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery-tipsy.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/compatibility.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/underscore.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery.ocdialog.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/oc-dialogs.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/js.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/octemplate.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/eventsource.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/config.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/search/js/result.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/oc-requesttoken.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/apps.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/snap.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/placeholder.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/3rdparty/js/md5/md5.min.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/jquery.avatar.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/avatar.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_mv/js/move.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/3rdparty/js/chosen/chosen.jquery.min.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/core/js/share.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/share.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/external.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_versions/js/versions.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/gallery/js/jquery.mousewheel-3.1.1.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/gallery/js/slideshow.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/gallery/js/public.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/music/js/public/fileactions.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/music/js/public/musicFilePlayer.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/search_lucene/js/checker.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/contacts/js/loader.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/contacts/js/admin.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/documents/js/viewer/viewer.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_pdfviewer/js/loader.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_videoviewer/js/viewer.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/firstrunwizard/js/jquery.colorbox.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/firstrunwizard/js/firstrunwizard.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/superlog/js/superlog.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/app.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/file-upload.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/jquery.iframe-transport.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/jquery.fileupload.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/jquery-visibility.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/filesummary.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/breadcrumb.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/filelist.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/app.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/sharedfilelist.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/app.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/sharedfilelist.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/app.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_sharing/js/sharedfilelist.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_trashbin/js/app.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files_trashbin/js/filelist.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/fileactions.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/files.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/navigation.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					<script type="text/javascript" src="/apps/files/js/keyboardshortcuts.js?v=56b8b562542d34fbbb05968309a1e847"></script>
+					</head>
+	<body id="body-user">
+	<noscript><div id="nojavascript"><div>This application requires JavaScript for correct operation. Please <a href="http://enable-javascript.com/" target="_blank">enable JavaScript</a> and reload the page.</div></div></noscript>
+	<div id="notification-container">
+		<div id="notification"></div>
+			</div>
+	<header><div id="header">
+			<a href="/index.php" title="" id="owncloud">
+				<div class="logo-icon svg"></div>
+			</a>
+			<a href="#" class="menutoggle">
+				<div class="header-appname">
+					Files				</div>
+				<div class="icon-caret svg"></div>
+			</a>
+			<div id="logo-claim" style="display:none;"></div>
+			<div id="settings" class="svg">
+				<span id="expand" tabindex="0" role="link">
+										<div class="avatardiv"></div>
+										<span id="expandDisplayName">registration</span>
+					<img class="svg" alt="" src="/core/img/actions/caret.svg" />
+				</span>
+				<div id="expanddiv">
+				<ul>
+									<li>
+						<a href="/index.php/settings/personal" title=""
+							>
+							<img class="svg" alt="" src="/settings/img/personal.svg">
+							Personal						</a>
+					</li>
+									<li>
+						<a href="/index.php/settings/help" title=""
+							>
+							<img class="svg" alt="" src="/settings/img/help.svg">
+							Help						</a>
+					</li>
+									<li>
+						<a id="logout" href="/index.php?logout=true&requesttoken=254b601234131b73146f">
+							<img class="svg" alt="" src="/core/img/actions/logout.svg" />
+							Log out						</a>
+					</li>
+				</ul>
+				</div>
+			</div>
+
+			<form class="searchbox" action="#" method="post">
+				<input id="searchbox" class="svg" type="search" name="query"
+					value=""
+					autocomplete="off" x-webkit-speech />
+			</form>
+		</div></header>
+
+		<nav><div id="navigation">
+			<div id="apps" class="svg">
+				<ul>
+									<li data-id="files_index">
+						<a href="/index.php/apps/files" title=""
+							 class="active">
+							<img class="app-icon svg" alt="" src="/core/img/places/files.svg"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Files							</span>
+						</a>
+					</li>
+									<li data-id="activity">
+						<a href="/index.php/apps/activity/" title=""
+							>
+							<img class="app-icon svg" alt="" src="/apps/activity/img/activity.svg"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Activity							</span>
+						</a>
+					</li>
+									<li data-id="documents_index">
+						<a href="/index.php/apps/documents/" title=""
+							>
+							<img class="app-icon svg" alt="" src="/apps/documents/img/documents.svg"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Documents							</span>
+						</a>
+					</li>
+									<li data-id="gallery_index">
+						<a href="/index.php/apps/gallery" title=""
+							>
+							<img class="app-icon svg" alt="" src="/core/img/places/picture.svg"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Pictures							</span>
+						</a>
+					</li>
+									<li data-id="dashboard">
+						<a href="/index.php/apps/dashboard/" title=""
+							>
+							<img class="app-icon svg" alt="" src="/apps/dashboard/img/dashboard.png"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Dashboard							</span>
+						</a>
+					</li>
+									<li data-id="music">
+						<a href="/index.php/apps/music/" title=""
+							>
+							<img class="app-icon svg" alt="" src="/apps/music/img/music.svg"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Music							</span>
+						</a>
+					</li>
+									<li data-id="contacts">
+						<a href="/index.php/apps/contacts/" title=""
+							>
+							<img class="app-icon svg" alt="" src="/apps/contacts/img/contacts.svg"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Contacts							</span>
+						</a>
+					</li>
+									<li data-id="ocusagecharts">
+						<a href="/index.php/apps/ocusagecharts/" title=""
+							>
+							<img class="app-icon svg" alt="" src="/apps/ocusagecharts/img/iconchart.png"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
+							<span>
+								Charts							</span>
+						</a>
+					</li>
+				
+				<!-- show "More apps" link to app administration directly in app navigation, as last entry -->
+				
+				</ul>
+			</div>
+		</div></nav>
+
+		<div id="content-wrapper">
+			<div id="content" class="app-files">
+				<div id="app-navigation">
+	<ul>
+				<li data-id="files" class="nav-files"><a href="#">All files</a></li>
+				<li data-id="sharingin" class="nav-sharingin"><a href="#">Shared with you</a></li>
+				<li data-id="sharingout" class="nav-sharingout"><a href="#">Shared with others</a></li>
+				<li data-id="sharinglinks" class="nav-sharinglinks"><a href="#">Shared by link</a></li>
+				<li data-id="trashbin" class="nav-trashbin"><a href="#">Deleted files</a></li>
+			</ul>
+	<div id="app-settings">
+		<div id="app-settings-header">
+			<button class="settings-button" data-apps-slide-toggle="#app-settings-content"></button>
+		</div>
+		<div id="app-settings-content">
+				<h2>WebDAV</h2>
+				<div><input id="webdavurl" type="text" readonly="readonly" value="https://cloud.iip.ufrn.br/remote.php/webdav/"></input></div>
+				<em>Use this address to <a href="http://doc.owncloud.org/server/7.0/go.php?to=user-webdav" target="_blank">access your Files via WebDAV</a></em>
+		</div>
+	</div>
+</div>
+<div id="app-content">
+		<div id="app-content-files" class="hidden viewcontainer">
+	<div id="controls">
+		<div class="actions creatable hidden">
+						<div id="new" class="button">
+				<a>New</a>
+				<ul>
+					<li class="icon-filetype-text svg"
+						data-type="file" data-newname="New text file.txt">
+						<p>Text file</p>
+					</li>
+					<li class="icon-filetype-folder svg"
+						data-type="folder" data-newname="New folder">
+						<p>Folder</p>
+					</li>
+					<li class="icon-link svg" data-type="web">
+						<p>From link</p>
+					</li>
+				</ul>
+			</div>
+									<div id="upload" class="button"
+				 title="">
+					<input type="hidden" id="max_upload" name="MAX_FILE_SIZE" value="">
+					<input type="hidden" id="upload_limit" value="537919488">
+					<input type="hidden" id="free_space" value="">
+										<input type="hidden" class="max_human_file_size"
+						   value="(max )">
+					<input type="file" id="file_upload_start" name='files[]'
+						   data-url="/index.php/apps/files/ajax/upload.php" />
+					<a href="#" class="svg icon-upload"></a>
+			</div>
+			<div id="uploadprogresswrapper">
+				<div id="uploadprogressbar"></div>
+				<input type="button" class="stop icon-close"
+					style="display:none" value="" />
+			</div>
+		</div>
+		<div id="file_action_panel"></div>
+		<div class="notCreatable notPublic hidden">
+			You don’t have permission to upload or create files here		</div>
+	<input type="hidden" name="permissions" value="" id="permissions">
+</div>
+
+<div id="emptycontent" class="hidden">Nothing in here. Upload something!</div>
+
+<table id="filestable" data-allow-public-upload="yes" data-preview-x="36" data-preview-y="36">
+	<thead>
+		<tr>
+			<th id='headerName' class="hidden column-name">
+				<div id="headerName-container">
+					<input type="checkbox" id="select_all_files" class="select-all"/>
+					<label for="select_all_files"></label>
+					<a class="name sort columntitle" data-sort="name"><span>Name</span><span class="sort-indicator"></span></a>
+					<span id="selectedActionsList" class="selectedActions">
+						<a href="" class="download">
+							<img class="svg" alt="Download"
+								 src="/core/img/actions/download.svg" />
+							Download						</a>
+					</span>
+				</div>
+			</th>
+			<th id="headerSize" class="hidden column-size">
+				<a class="size sort columntitle" data-sort="size"><span>Size</span><span class="sort-indicator"></span></a>
+			</th>
+			<th id="headerDate" class="hidden column-mtime">
+				<a id="modified" class="columntitle" data-sort="mtime"><span>Modified</span><span class="sort-indicator"></span></a>
+					<span class="selectedActions"><a href="" class="delete-selected">
+						Delete						<img class="svg" alt="Delete"
+							 src="/core/img/actions/delete.svg" />
+					</a></span>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="fileList">
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+<input type="hidden" name="dir" id="dir" value="" />
+<div id="editor"></div><!-- FIXME Do not use this div in your app! It is deprecated and will be removed in the future! -->
+<div id="uploadsize-message" title="Upload too large">
+	<p>
+	The files you are trying to upload exceed the maximum size for file uploads on this server.	</p>
+</div>
+<div id="scanning-message">
+	<h3>
+		Files are being scanned, please wait. <span id='scan-count'></span>
+	</h3>
+	<p>
+		Currently scanning <span id='scan-current'></span>
+	</p>
+</div>
+	</div>
+		<div id="app-content-sharingin" class="hidden viewcontainer">
+	<div id="controls">
+	<div id="file_action_panel"></div>
+</div>
+<div id='notification'></div>
+
+<div id="emptycontent" class="hidden"></div>
+
+<input type="hidden" name="dir" value="" id="dir">
+
+<table id="filestable">
+	<thead>
+		<tr>
+			<th id='headerName' class="hidden column-name">
+				<div id="headerName-container">
+					<a class="name sort columntitle" data-sort="name"><span>Name</span><span class="sort-indicator"></span></a>
+				</div>
+			</th>
+			<th id="headerDate" class="hidden column-mtime">
+				<a id="modified" class="columntitle" data-sort="mtime"><span>Share time</span><span class="sort-indicator"></span></a>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="fileList">
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+	</div>
+		<div id="app-content-sharingout" class="hidden viewcontainer">
+	<div id="controls">
+	<div id="file_action_panel"></div>
+</div>
+<div id='notification'></div>
+
+<div id="emptycontent" class="hidden"></div>
+
+<input type="hidden" name="dir" value="" id="dir">
+
+<table id="filestable">
+	<thead>
+		<tr>
+			<th id='headerName' class="hidden column-name">
+				<div id="headerName-container">
+					<a class="name sort columntitle" data-sort="name"><span>Name</span><span class="sort-indicator"></span></a>
+				</div>
+			</th>
+			<th id="headerDate" class="hidden column-mtime">
+				<a id="modified" class="columntitle" data-sort="mtime"><span>Share time</span><span class="sort-indicator"></span></a>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="fileList">
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+	</div>
+		<div id="app-content-sharinglinks" class="hidden viewcontainer">
+	<div id="controls">
+	<div id="file_action_panel"></div>
+</div>
+<div id='notification'></div>
+
+<div id="emptycontent" class="hidden"></div>
+
+<input type="hidden" name="dir" value="" id="dir">
+
+<table id="filestable">
+	<thead>
+		<tr>
+			<th id='headerName' class="hidden column-name">
+				<div id="headerName-container">
+					<a class="name sort columntitle" data-sort="name"><span>Name</span><span class="sort-indicator"></span></a>
+				</div>
+			</th>
+			<th id="headerDate" class="hidden column-mtime">
+				<a id="modified" class="columntitle" data-sort="mtime"><span>Share time</span><span class="sort-indicator"></span></a>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="fileList">
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+	</div>
+		<div id="app-content-trashbin" class="hidden viewcontainer">
+	<div id="controls">
+	<div id="file_action_panel"></div>
+</div>
+<div id='notification'></div>
+
+<div id="emptycontent" class="hidden">Nothing in here. Your trash bin is empty!</div>
+
+<input type="hidden" name="dir" value="" id="dir">
+
+<table id="filestable">
+	<thead>
+		<tr>
+			<th id='headerName' class="hidden column-name">
+				<div id="headerName-container">
+					<input type="checkbox" id="select_all_trash" class="select-all"/>
+					<label for="select_all_trash"></label>
+					<a class="name sort columntitle" data-sort="name"><span>Name</span><span class="sort-indicator"></span></a>
+					<span id="selectedActionsList" class='selectedActions'>
+						<a href="" class="undelete">
+							<img class="svg" alt="Restore"
+								 src="/core/img/actions/history.svg" />
+							Restore						</a>
+					</span>
+				</div>
+			</th>
+			<th id="headerDate" class="hidden column-mtime">
+				<a id="modified" class="columntitle" data-sort="mtime"><span>Deleted</span><span class="sort-indicator"></span></a>
+				<span class="selectedActions">
+					<a href="" class="delete-selected">
+						Delete						<img class="svg" alt="Delete"
+							src="/core/img/actions/delete.svg" />
+					</a>
+				</span>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="fileList">
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+	</div>
+	</div><!-- closing app-content -->
+
+<!-- config hints for javascript -->
+<input type="hidden" name="filesApp" id="filesApp" value="1" />
+<input type="hidden" name="usedSpacePercent" id="usedSpacePercent" value="0" />
+<input type="hidden" name="encryptedFiles" id="encryptedFiles" value="0" />
+<input type="hidden" name="encryptedInitStatus" id="encryptionInitStatus" value="2" />
+<input type="hidden" name="mailNotificationEnabled" id="mailNotificationEnabled" value="yes" />
+<input type="hidden" name="allowShareWithLink" id="allowShareWithLink" value="yes" />
+			</div>
+		</div>
+	</body>
+</html>
